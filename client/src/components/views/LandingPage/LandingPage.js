@@ -24,17 +24,6 @@ function LandingPage() {
     });
   }, []);
 
-  // const setFirstVideo = () => {
-  //   if (firstLoad && Video.length > 0) {
-  //     dispatch(setCurrentVideo(Video[0]));
-  //     console.log("first dispatch success");
-  //   } else {
-  //     console.log("video not founded");
-  //     setCurrentVideo([]);
-  //   }
-  //   setfirstLoad(false);
-  // };
-
   return (
     <>
       {/* <Col lg={4} md={6} sm={24}>

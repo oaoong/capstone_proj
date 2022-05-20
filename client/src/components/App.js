@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
 // pages for this product
 import LandingPage from "./views/LandingPage/LandingPage.js";
+import StatisticsPage from "./views/StatisticsPage/StatisticsPage.js";
 import NavBar from "./views/NavBar/NavBar";
 import Footer from "./views/Footer/Footer";
 
@@ -12,9 +13,10 @@ function App() {
       <div style={{ paddingTop: "69px", minHeight: "calc(100vh - 80px)" }}>
         <Switch>
           <Route exact path="/" component={LandingPage} />
+          <Route exact path="/statistics" component={StatisticsPage} />
         </Switch>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </Suspense>
   );
 }

@@ -7,10 +7,9 @@ function MainPage(props) {
     <div
       style={{
         width: "100%",
-        height: "450px",
+        height: "80vh",
         border: ".2rem solid #ececec",
         borderRadius: "4px",
-        marginBottom: "1rem",
         overflowY: "auto",
       }}
     >
