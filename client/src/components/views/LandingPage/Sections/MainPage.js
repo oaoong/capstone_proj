@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 function MainPage(props) {
   return (
     <div
-      class="box"
+      className="box"
       style={{
         width: "100%",
         height: "80vh",

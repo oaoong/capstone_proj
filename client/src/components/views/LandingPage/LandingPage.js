@@ -17,7 +17,7 @@ function LandingPage() {
       if (response.status == 200) {
         setVideo(JSON.parse(response.data.body)[1]);
         dispatch(setCurrentVideo(JSON.parse(response.data.body)[1]));
-        console.log(response);
+        console.log("비디오 주소 정보", response);
       } else {
         alert("비디오 정보를 불러오는데 실패했습니다.");
       }

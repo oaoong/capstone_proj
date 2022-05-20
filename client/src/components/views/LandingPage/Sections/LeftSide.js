@@ -20,7 +20,7 @@ function LeftSide() {
         <ControlPage />
       </div>
       <div
-        class="box"
+        className="box"
         style={{
           position: "static",
           height: "80%",

@@ -11,10 +11,10 @@ function AlertPage() {
   }, []);
 
   const getAlerts = () => {
-    axios.get("api/streaming/getAlerts").then((response) => {
+    axios.get("/api/streaming/getAlerts").then((response) => {
       if (response.status == 200) {
         setAlerts(JSON.parse(response.data.alerts));
-        console.log("alerts", JSON.parse(response.data.alerts));
+        // console.log("alerts", JSON.parse(response.data.alerts));
       } else {
         alert("경고 문구를 가져오는 데 실패했습니다.");
       }
@@ -22,7 +22,14 @@ function AlertPage() {
   };
 
   const onClose = (data) => {
-    console.log(data);
+    axios
+      .post(`/api/streaming/removeAlerts/${data._id.$oid}`)
+      .then(() => {
+        console.log(`${data._id.$oid} 삭제 완료`);
+      })
+      .catch(() => {
+        alert("경고 문구를 삭제하는 데 실패했습니다.");
+      });
   };
 
   const renderAlerts = Alerts.map((alert, index) => {
@@ -32,7 +39,7 @@ function AlertPage() {
           message={`${alert.data.timestamp.$date.substr(0, 19)}`}
           description={
             <Marquee pauseOnHover speed={40} gradient={false}>
-              {`<${alert.data.name}>의 <${alert.data.contents}>가 감지되었습니다.`}
+              {`<${alert.data.location}>방면 <${alert.data.name}>의 <${alert.data.contents}>가 감지되었습니다.`}
             </Marquee>
           }
           banner

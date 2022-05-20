@@ -1,6 +1,7 @@
 from asyncio.windows_events import NULL
 from flask import Blueprint, Flask, request, make_response, jsonify
 from bson.json_util import dumps
+from bson.objectid import ObjectId
 from flask_pymongo import pymongo
 from flaskserver.server import db
 
@@ -30,6 +31,11 @@ def getAlerts():
         return jsonify({'alerts': dumps(data)})
     else:
         return 'error to get alerts'
+    
+@streaming_api.route('/removeAlerts/<alert_id>',methods=["POST"])
+def removeAlerts(alert_id):
+    print(alert_id)
+    db.info.delete_one({"_id":ObjectId(alert_id)})
 
 #get_streaming_video
 # get_streaming_info
