@@ -21,6 +21,15 @@ def getAddress():
     else:
         return 'error to get address'
     
+@streaming_api.route('/getAlerts',methods=["GET"])
+def getAlerts():
+    data = list(db.info.find())
+    print(data)
+    
+    if (data != NULL):
+        return jsonify({'alerts': dumps(data)})
+    else:
+        return 'error to get alerts'
 
 #get_streaming_video
 # get_streaming_info

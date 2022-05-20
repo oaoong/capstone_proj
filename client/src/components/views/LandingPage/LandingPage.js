@@ -29,10 +29,10 @@ function LandingPage() {
       {/* <Col lg={4} md={6} sm={24}>
         <LeftSide videolist={Video} />
       </Col> */}
-      <Col lg={4} md={6} sm={24}>
+      <Col lg={6} md={6} sm={24}>
         <LeftSide />
       </Col>
-      <Col lg={20} md={18} sm={24}>
+      <Col lg={18} md={18} sm={24}>
         <MainPage />
       </Col>
     </>

@@ -1,7 +1,7 @@
 import React from "react";
 import AlertPage from "../../AlertPage/AlertPage";
 import ControlPage from "../../ControlPage/ControlPage";
-import "./LeftMenu.css";
+import "./Section.css";
 
 function LeftSide() {
   return (

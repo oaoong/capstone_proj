@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 function VideoPlayPage() {
@@ -25,10 +25,18 @@ function VideoPlayPage() {
             padding: "0rem 1rem 3rem 1rem",
             maxHeight: "500px",
           }}
-          src={videoStream}
+          src="http://media.w3.org/2010/05/sintel/trailer.mp4"
           controls
         />
-        {/* <img width="500" height="500" alt="stream" src={videoStream} /> */}
+        {/* <img
+          style={{
+            width: "100%",
+            padding: "0rem 1rem 3rem 1rem",
+            maxHeight: "500px",
+          }}
+          alt="stream"
+          src={videoStream}
+        /> */}
       </div>
     </>
   );
