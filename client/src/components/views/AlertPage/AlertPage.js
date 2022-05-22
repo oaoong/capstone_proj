@@ -39,7 +39,7 @@ function AlertPage() {
           message={`${alert.data.timestamp.$date.substr(0, 19)}`}
           description={
             <Marquee pauseOnHover speed={40} gradient={false}>
-              {`<${alert.data.location}>방면 <${alert.data.name}>의 <${alert.data.contents}>가 감지되었습니다.`}
+              {`<${alert.data.location}>방면 <${alert.data.name}>의 <${alert.data.contents}>이(가) 감지되었습니다.`}
             </Marquee>
           }
           banner

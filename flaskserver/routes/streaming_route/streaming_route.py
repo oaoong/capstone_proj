@@ -36,8 +36,19 @@ def getAlerts():
 def removeAlerts(alert_id):
     print(alert_id)
     db.info.delete_one({"_id":ObjectId(alert_id)})
-
-#get_streaming_video
-# get_streaming_info
-# get_alert_info
-# get_statistics_info
+    
+@streaming_api.route('/getContents',methods=["GET"])
+def getContents():
+    result = db.statistics.aggregate([{'$group': {'_id': '$data.contents', 'total': {'$sum': 1}}}])
+    if (result != NULL):
+        return jsonify({'contents': dumps(result, ensure_ascii = False)})
+    else:
+        return 'error to get contents'
+    
+@streaming_api.route('/getMonth',methods=["GET"])
+def getMonth():
+    result = db.statistics.aggregate([{"$project": { "formattedRegDate": { "$dateToString": {"format":"%Y-%m", "date":'$data.timestamp'}} } }, {"$group":{"_id":"$formattedRegDate", "count":{"$sum":1}}}])
+    if (result != NULL):
+        return jsonify({'month': dumps(result, ensure_ascii = False)})
+    else:
+        return 'error to get month'

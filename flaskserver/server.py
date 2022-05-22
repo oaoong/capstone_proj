@@ -4,7 +4,7 @@ from flask_pymongo import pymongo
 from .config.dev import mongoURI
 
 app = Flask(__name__)
-cors = CORS(app, resources={r"/*": {"origins": "*"}})
+app.config['JSON_AS_ASCII'] = False
 
 client = pymongo.MongoClient(mongoURI)
 db = client.get_database('flask_mongodb_atlas')
