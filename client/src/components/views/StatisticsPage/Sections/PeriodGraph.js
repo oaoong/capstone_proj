@@ -58,7 +58,12 @@ function PeriodGraph(props) {
   }, []);
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        padding: "5rem 5rem 5rem 5rem",
+      }}
+    >
       <Line
         options={options}
         data={{

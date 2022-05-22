@@ -3,6 +3,7 @@ from flask import Blueprint, Flask, request, make_response, jsonify
 from bson.json_util import dumps
 from bson.objectid import ObjectId
 from flask_pymongo import pymongo
+from sympy import true
 from flaskserver.server import db
 
 streaming_api = Blueprint('streaming',__name__, url_prefix='/api/streaming')
@@ -25,6 +26,7 @@ def getAddress():
 @streaming_api.route('/getAlerts',methods=["GET"])
 def getAlerts():
     data = list(db.info.find())
+    data = sorted(data, key=lambda x : x['_id'])
     print(data)
     
     if (data != NULL):
@@ -36,6 +38,7 @@ def getAlerts():
 def removeAlerts(alert_id):
     print(alert_id)
     db.info.delete_one({"_id":ObjectId(alert_id)})
+    return jsonify({'success': True})
     
 @streaming_api.route('/getContents',methods=["GET"])
 def getContents():

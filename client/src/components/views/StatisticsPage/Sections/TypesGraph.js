@@ -20,7 +20,7 @@ function TypesGraph(props) {
   }, []);
 
   return (
-    <div>
+    <div style={{ padding: "3rem 5rem 5rem 5rem" }}>
       <Pie
         data={{
           labels: labels,

@@ -29,24 +29,13 @@ body {
   height: 100vh;
 }
 
-input.error {
-  border-color: red;
+.box {
+  -ms-overflow-style: none;
+}
+.box::-webkit-scrollbar {
+  display: none;
 }
 
-.input-feedback {
-  color: red;
-  height: 5px;
-  margin-top: -12px;
-}
-
-.video :hover {
-  background-color: #eeeeee;
-}
-
-.video :active {
-  background-color: #e6e6e6;
-}
-
-.video :visited {
-  background-color: white;
+.alert :hover {
+  background-color: #f7f1d7;
 }

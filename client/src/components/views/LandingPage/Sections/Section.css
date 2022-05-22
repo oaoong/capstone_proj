@@ -1,6 +1,0 @@
-.box {
-  -ms-overflow-style: none;
-}
-.box::-webkit-scrollbar {
-  display: none;
-}
