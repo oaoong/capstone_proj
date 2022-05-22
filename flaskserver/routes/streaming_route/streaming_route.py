@@ -40,6 +40,7 @@ def removeAlerts(alert_id):
 @streaming_api.route('/getContents',methods=["GET"])
 def getContents():
     result = db.statistics.aggregate([{'$group': {'_id': '$data.contents', 'total': {'$sum': 1}}}])
+    result = sorted(result, key=lambda x : x['total'])
     if (result != NULL):
         return jsonify({'contents': dumps(result, ensure_ascii = False)})
     else:
@@ -48,6 +49,7 @@ def getContents():
 @streaming_api.route('/getMonth',methods=["GET"])
 def getMonth():
     result = db.statistics.aggregate([{"$project": { "formattedRegDate": { "$dateToString": {"format":"%Y-%m", "date":'$data.timestamp'}} } }, {"$group":{"_id":"$formattedRegDate", "count":{"$sum":1}}}])
+    result = sorted(result, key=lambda x : x['_id'])
     if (result != NULL):
         return jsonify({'month': dumps(result, ensure_ascii = False)})
     else:

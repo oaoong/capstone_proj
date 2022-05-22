@@ -46,7 +46,15 @@ function PeriodGraph(props) {
   const [data, setdata] = useState([]);
 
   useEffect(() => {
-    setdata([1, 2, 3]);
+    let numbers = [];
+    let months = [];
+
+    props.month.map((data, idx) => {
+      numbers.push(data.count);
+      months.push(data._id);
+    });
+    setdata(numbers);
+    setlabels(months);
   }, []);
 
   return (

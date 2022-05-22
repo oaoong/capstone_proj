@@ -5,8 +5,8 @@ import TypesGraph from "./Sections/TypesGraph";
 import axios from "axios";
 
 function StatisticsPage() {
-  const [contents, setcontents] = useState({});
-  const [month, setmonth] = useState({});
+  const [contents, setcontents] = useState(null);
+  const [month, setmonth] = useState(null);
 
   useEffect(() => {
     getContents();
@@ -38,10 +38,10 @@ function StatisticsPage() {
   return (
     <>
       <Col lg={12} md={12} sm={24}>
-        <TypesGraph alerts={contents} />
+        {contents && <TypesGraph contents={contents} />}
       </Col>
       <Col lg={12} md={12} sm={24}>
-        <PeriodGraph alerts={month} />
+        {month && <PeriodGraph month={month} />}
       </Col>
     </>
   );
