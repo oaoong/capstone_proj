@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import LeftMenu from "./Sections/LeftMenu";
 import RightMenu from "./Sections/RightMenu";
 import { Drawer, Button, Icon } from "antd";
+import { AiOutlineVideoCamera } from "react-icons/ai";
 import "./Sections/Navbar.css";
 
 function NavBar() {
@@ -21,7 +22,9 @@ function NavBar() {
       style={{ position: "fixed", zIndex: 5, width: "100%" }}
     >
       <div className="menu__logo">
-        <a href="/">CCTV</a>
+        <a href="/">
+          <AiOutlineVideoCamera size="30px" />
+        </a>
       </div>
       <div className="menu__container">
         <div className="menu_left">

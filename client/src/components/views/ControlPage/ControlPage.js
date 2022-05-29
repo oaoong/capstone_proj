@@ -4,6 +4,7 @@ import { Button } from "antd";
 function ControlPage() {
   const onButton1Click = () => {
     alert("button1 clicked");
+    // 수동 경고?
   };
   const onButton2Click = () => {
     alert("button2 clicked");

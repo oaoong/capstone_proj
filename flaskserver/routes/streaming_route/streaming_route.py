@@ -20,6 +20,7 @@ def getAddress():
     
     if (data != NULL):
         return jsonify({'body': dumps(data)})
+    
     else:
         return 'error to get address'
     

@@ -1,6 +1,6 @@
 import React from "react";
 import VideoPlayPage from "../../VideoPlayPage/VideoPlayPage";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 function MainPage(props) {
   return (
