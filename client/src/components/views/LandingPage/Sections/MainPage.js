@@ -9,8 +9,6 @@ function MainPage(props) {
       style={{
         width: "100%",
         height: "80vh",
-        border: ".2rem solid #ececec",
-        borderRadius: "4px",
         overflowY: "auto",
       }}
     >

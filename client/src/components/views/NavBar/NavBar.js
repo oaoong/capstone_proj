@@ -19,11 +19,25 @@ function NavBar() {
   return (
     <nav
       className="menu"
-      style={{ position: "fixed", zIndex: 5, width: "100%" }}
+      style={{
+        position: "fixed",
+        zIndex: 5,
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        paddingBottom: "5px",
+        paddingTop: "20px",
+      }}
     >
-      <div className="menu__logo">
-        <a href="/">
-          <AiOutlineVideoCamera size="30px" />
+      <div
+        className="menu__logo"
+        style={{
+          width: "100%",
+          textAlign: "center",
+        }}
+      >
+        <a href="/" style={{ padding: "5px 0 0 0" }}>
+          <div style={{ height: "100%", fontSize: "3rem" }}>선넘지마</div>
         </a>
       </div>
       <div className="menu__container">

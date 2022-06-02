@@ -9,8 +9,6 @@ function LeftSide() {
       style={{
         width: "100%",
         height: "80vh",
-        border: ".2rem solid #ececec",
-        borderRadius: "4px",
         padding: "1rem",
         marginBottom: "1rem",
         overflowY: "hidden",
