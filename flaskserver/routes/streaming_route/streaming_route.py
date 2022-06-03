@@ -28,7 +28,7 @@ def getAddress():
 def getAlerts():
     data = list(db.info.find())
     data = sorted(data, key=lambda x : x['_id'])
-    print(data)
+    print(len(data))
     
     if (data != NULL):
         return jsonify({'alerts': dumps(data)})
