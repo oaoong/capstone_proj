@@ -54,3 +54,7 @@ body {
 .alert :hover {
   background-color: #f7f1d7;
 }
+
+/* .alert :active {
+  transform: scale(0.8);
+} */

@@ -1,41 +1,34 @@
-import React, { useEffect, useState, useMemo } from "react";
-import { Alert, Row, Col, Button } from "antd";
-import Marquee from "react-fast-marquee";
-import useSWR from "swr";
+import React, { useState, useCallback } from "react";
+import useSWR, { useSWRConfig } from "swr";
 import axios from "axios";
+import AlertComponent from "./Sections/AlertComponent";
 
 const fetcher = async (url) =>
   await axios.get(url).then((response) => JSON.parse(response.data.alerts));
 
 function AlertPage() {
-  // const [Alerts, setAlerts] = useState([]);
-  const { data = [], error } = useSWR("/api/streaming/getAlerts", fetcher, {
+  const {
+    data = [],
+    error,
+    // mutate,
+  } = useSWR("/api/streaming/getAlerts", fetcher, {
     refreshInterval: 1000,
   });
 
-  const onClose = (data) => {
-    axios.post(`/api/streaming/removeAlerts/${data._id.$oid}`).then(() => {
-      console.log(`${data._id.$oid} 삭제 완료`);
+  const onClose = async (alert) => {
+    axios.post(`/api/streaming/removeAlerts/${alert._id.$oid}`).then(() => {
+      console.log(`${alert._id.$oid} 삭제 완료`);
+      // mutate(fetcher("/api/streaming/getAlerts"), true);
     });
+    // const options = { optimisticData: data, rollbackOnError: true };
+    // const data = { ...data, data };
+    // mutate("/api/streaming/getAlerts", renderAlerts(data), options);
   };
 
   const renderAlerts = data.map((alert, index) => {
     return (
-      <div
-        className="alert"
-        key={index}
-        style={{ display: "flex" }}
-        onClick={(e) => onClose(alert)}
-      >
-        <Alert
-          message={`${alert.data.timestamp.$date.substr(0, 19)}`}
-          description={
-            <Marquee pauseOnHover speed={40} gradient={false}>
-              {`<${alert.data.location}>방면 <${alert.data.name}>의 <${alert.data.contents}>이(가) 감지되었습니다.`}
-            </Marquee>
-          }
-          banner
-        />
+      <div key={alert._id.$oid}>
+        <AlertComponent alert={alert} index={index} onClose={onClose} />
       </div>
     );
   });
@@ -43,11 +36,7 @@ function AlertPage() {
   if (error) return <div>failed to load</div>;
   if (data === []) return <div>loading...</div>;
 
-  return (
-    <>
-      <Row>{renderAlerts}</Row>
-    </>
-  );
+  return <div>{renderAlerts}</div>;
 }
 
 export default AlertPage;
