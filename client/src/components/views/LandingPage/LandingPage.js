@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col } from "antd";
+import useSWR, { useSWRConfig } from "swr";
 import Axios from "axios";
 import LeftSide from "./Sections/LeftSide";
 import MainPage from "./Sections/MainPage";
@@ -7,10 +8,17 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setCurrentVideo } from "../../../_actions/video_actions";
 
+const fetcher = async (url) =>
+  await Axios.get(url).then((response) => JSON.parse(response.data.success));
+
 function LandingPage() {
   const [Video, setVideo] = useState([]);
   const dispatch = useDispatch();
   const currentVideo = useSelector((state) => state.video.currentVideo);
+
+  const { alert } = useSWR("/api/arduino/", fetcher, {
+    refreshInterval: 1000,
+  });
 
   useEffect(() => {
     Axios.get("/api/streaming/getAddress").then((response) => {
