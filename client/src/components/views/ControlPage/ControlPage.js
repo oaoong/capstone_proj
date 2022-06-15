@@ -12,7 +12,7 @@ function ControlPage() {
 
   return (
     <div>
-      <Button
+      {/* <Button
         onClick={onButton1Click}
         style={{ width: "100%", marginBottom: "0.5rem" }}
         type="primary"
@@ -21,7 +21,7 @@ function ControlPage() {
       </Button>
       <Button onClick={onButton2Click} style={{ width: "100%" }}>
         Button 2
-      </Button>
+      </Button> */}
     </div>
   );
 }

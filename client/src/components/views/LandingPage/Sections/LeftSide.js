@@ -14,9 +14,9 @@ function LeftSide() {
         overflowY: "hidden",
       }}
     >
-      <div style={{ position: "static", height: "20%", overflowY: "auto" }}>
+      {/* <div style={{ position: "static", height: "20%", overflowY: "auto" }}>
         <ControlPage />
-      </div>
+      </div> */}
       <div
         className="box"
         style={{

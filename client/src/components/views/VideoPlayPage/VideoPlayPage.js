@@ -19,16 +19,16 @@ function VideoPlayPage() {
       >
         {/* <h2>{videoURL}</h2> */}
 
-        {/* <video
+        <video
           style={{
             width: "100%",
             padding: "0rem 1rem 3rem 1rem",
             maxHeight: "500px",
           }}
           src="http://media.w3.org/2010/05/sintel/trailer.mp4"
-          controls
-        /> */}
-        <img
+          autoplay="autoplay"
+        />
+        {/* <img
           style={{
             width: "100%",
             padding: "0rem 1rem 3rem 1rem",
@@ -36,7 +36,7 @@ function VideoPlayPage() {
           }}
           alt="stream"
           src={videoStream}
-        />
+        /> */}
       </div>
     </>
   );
