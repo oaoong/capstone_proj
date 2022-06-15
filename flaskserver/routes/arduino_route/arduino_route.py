@@ -17,15 +17,6 @@ def car():
     
 def child():
 	serialcom.write(str('child').encode())
- 
-# def lightOn():
-#     serialcom.write(str('lightOn').encode())
-    
-# def lightOff():
-#     serialcom.write(str('lightOff').encode())
- 
-# def disconnect():
-# 	serialcom.close()
 
 @arduino_api.route('/',methods=["GET"])
 def arduino_page():

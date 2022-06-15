@@ -17,9 +17,9 @@ function VideoPlayPage() {
           height: "80vh",
         }}
       >
-        <h2>{videoURL}</h2>
+        {/* <h2>{videoURL}</h2> */}
 
-        <video
+        {/* <video
           style={{
             width: "100%",
             padding: "0rem 1rem 3rem 1rem",
@@ -27,8 +27,8 @@ function VideoPlayPage() {
           }}
           src="http://media.w3.org/2010/05/sintel/trailer.mp4"
           controls
-        />
-        {/* <img
+        /> */}
+        <img
           style={{
             width: "100%",
             padding: "0rem 1rem 3rem 1rem",
@@ -36,7 +36,7 @@ function VideoPlayPage() {
           }}
           alt="stream"
           src={videoStream}
-        /> */}
+        />
       </div>
     </>
   );
