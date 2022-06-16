@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import roadVideo from "./road.mp4";
 
 function VideoPlayPage() {
   const [videoStream, setvideoStream] = useState("");
@@ -25,8 +26,9 @@ function VideoPlayPage() {
             padding: "0rem 1rem 3rem 1rem",
             maxHeight: "500px",
           }}
-          src="http://media.w3.org/2010/05/sintel/trailer.mp4"
+          src={roadVideo}
           autoplay="autoplay"
+          loop
         />
         {/* <img
           style={{
